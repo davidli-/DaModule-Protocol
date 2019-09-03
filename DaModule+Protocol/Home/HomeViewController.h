@@ -1,14 +1,14 @@
 //
-//  ViewController.h
+//  HomeViewController.h
 //  DaModule+Protocol
 //
-//  Created by Macmafia on 2019/9/3.
+//  Created by Macmafia on 2019/9/2.
 //  Copyright © 2019 Macmafia. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface HomeViewController : UIViewController
 
 
 @end

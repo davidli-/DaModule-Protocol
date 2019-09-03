@@ -8,24 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		0AD49C9C231D7642000A7AE5 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49C9B231D7642000A7AE5 /* AppDelegate.m */; };
-		0AD49C9F231D7642000A7AE5 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49C9E231D7642000A7AE5 /* ViewController.m */; };
 		0AD49CA2231D7642000A7AE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD49CA0231D7642000A7AE5 /* Main.storyboard */; };
 		0AD49CA4231D7644000A7AE5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0AD49CA3231D7644000A7AE5 /* Assets.xcassets */; };
 		0AD49CA7231D7644000A7AE5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0AD49CA5231D7644000A7AE5 /* LaunchScreen.storyboard */; };
 		0AD49CAA231D7644000A7AE5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49CA9231D7644000A7AE5 /* main.m */; };
+		0AD49CB3231D7698000A7AE5 /* 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD49CB1231D7698000A7AE5 /* 1@2x.png */; };
+		0AD49CB4231D7698000A7AE5 /* 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0AD49CB2231D7698000A7AE5 /* 1@3x.png */; };
+		0AD49CB8231D7751000A7AE5 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49CB7231D7751000A7AE5 /* HomeViewController.m */; };
+		0AD49CBD231D775B000A7AE5 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49CBB231D775B000A7AE5 /* DetailViewController.m */; };
+		0AD49CC2231D7EBA000A7AE5 /* DetailProtocolImplementor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49CC1231D7EBA000A7AE5 /* DetailProtocolImplementor.m */; };
+		0AD49CC7231D81AE000A7AE5 /* ModuleProtocolMediator.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AD49CC6231D81AE000A7AE5 /* ModuleProtocolMediator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A265CE1231E69F1001EF7A5 /* CommonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonProtocol.h; sourceTree = "<group>"; };
 		0AD49C97231D7642000A7AE5 /* DaModule+Protocol.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "DaModule+Protocol.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AD49C9A231D7642000A7AE5 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		0AD49C9B231D7642000A7AE5 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0AD49C9D231D7642000A7AE5 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0AD49C9E231D7642000A7AE5 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		0AD49CA1231D7642000A7AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0AD49CA3231D7644000A7AE5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0AD49CA6231D7644000A7AE5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0AD49CA8231D7644000A7AE5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AD49CA9231D7644000A7AE5 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0AD49CB1231D7698000A7AE5 /* 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@2x.png"; sourceTree = "<group>"; };
+		0AD49CB2231D7698000A7AE5 /* 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "1@3x.png"; sourceTree = "<group>"; };
+		0AD49CB6231D7751000A7AE5 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		0AD49CB7231D7751000A7AE5 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		0AD49CBB231D775B000A7AE5 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		0AD49CBC231D775B000A7AE5 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		0AD49CBF231D7D46000A7AE5 /* DetailModuleProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailModuleProtocol.h; sourceTree = "<group>"; };
+		0AD49CC0231D7EBA000A7AE5 /* DetailProtocolImplementor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailProtocolImplementor.h; sourceTree = "<group>"; };
+		0AD49CC1231D7EBA000A7AE5 /* DetailProtocolImplementor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailProtocolImplementor.m; sourceTree = "<group>"; };
+		0AD49CC5231D81AE000A7AE5 /* ModuleProtocolMediator.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ModuleProtocolMediator.h; sourceTree = "<group>"; };
+		0AD49CC6231D81AE000A7AE5 /* ModuleProtocolMediator.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ModuleProtocolMediator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,8 +75,10 @@
 			children = (
 				0AD49C9A231D7642000A7AE5 /* AppDelegate.h */,
 				0AD49C9B231D7642000A7AE5 /* AppDelegate.m */,
-				0AD49C9D231D7642000A7AE5 /* ViewController.h */,
-				0AD49C9E231D7642000A7AE5 /* ViewController.m */,
+				0AD49CC4231D816A000A7AE5 /* ProtocolMediator */,
+				0AD49CB5231D76EB000A7AE5 /* Home */,
+				0AD49CB9231D775B000A7AE5 /* Detail */,
+				0AD49CB0231D7698000A7AE5 /* Icons */,
 				0AD49CA0231D7642000A7AE5 /* Main.storyboard */,
 				0AD49CA3231D7644000A7AE5 /* Assets.xcassets */,
 				0AD49CA5231D7644000A7AE5 /* LaunchScreen.storyboard */,
@@ -69,6 +86,70 @@
 				0AD49CA9231D7644000A7AE5 /* main.m */,
 			);
 			path = "DaModule+Protocol";
+			sourceTree = "<group>";
+		};
+		0AD49CB0231D7698000A7AE5 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CB1231D7698000A7AE5 /* 1@2x.png */,
+				0AD49CB2231D7698000A7AE5 /* 1@3x.png */,
+			);
+			path = Icons;
+			sourceTree = "<group>";
+		};
+		0AD49CB5231D76EB000A7AE5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CB6231D7751000A7AE5 /* HomeViewController.h */,
+				0AD49CB7231D7751000A7AE5 /* HomeViewController.m */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		0AD49CB9231D775B000A7AE5 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CBA231D775B000A7AE5 /* Controllers */,
+				0AD49CC3231D7EC2000A7AE5 /* Protocol+IMPer */,
+				0AD49CBE231D7D10000A7AE5 /* Protocols */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		0AD49CBA231D775B000A7AE5 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CBC231D775B000A7AE5 /* DetailViewController.h */,
+				0AD49CBB231D775B000A7AE5 /* DetailViewController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		0AD49CBE231D7D10000A7AE5 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CBF231D7D46000A7AE5 /* DetailModuleProtocol.h */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		0AD49CC3231D7EC2000A7AE5 /* Protocol+IMPer */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CC0231D7EBA000A7AE5 /* DetailProtocolImplementor.h */,
+				0AD49CC1231D7EBA000A7AE5 /* DetailProtocolImplementor.m */,
+			);
+			path = "Protocol+IMPer";
+			sourceTree = "<group>";
+		};
+		0AD49CC4231D816A000A7AE5 /* ProtocolMediator */ = {
+			isa = PBXGroup;
+			children = (
+				0AD49CC5231D81AE000A7AE5 /* ModuleProtocolMediator.h */,
+				0AD49CC6231D81AE000A7AE5 /* ModuleProtocolMediator.m */,
+				0A265CE1231E69F1001EF7A5 /* CommonProtocol.h */,
+			);
+			path = ProtocolMediator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +211,8 @@
 			files = (
 				0AD49CA7231D7644000A7AE5 /* LaunchScreen.storyboard in Resources */,
 				0AD49CA4231D7644000A7AE5 /* Assets.xcassets in Resources */,
+				0AD49CB4231D7698000A7AE5 /* 1@3x.png in Resources */,
+				0AD49CB3231D7698000A7AE5 /* 1@2x.png in Resources */,
 				0AD49CA2231D7642000A7AE5 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,8 +224,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AD49C9F231D7642000A7AE5 /* ViewController.m in Sources */,
+				0AD49CC2231D7EBA000A7AE5 /* DetailProtocolImplementor.m in Sources */,
+				0AD49CBD231D775B000A7AE5 /* DetailViewController.m in Sources */,
 				0AD49CAA231D7644000A7AE5 /* main.m in Sources */,
+				0AD49CB8231D7751000A7AE5 /* HomeViewController.m in Sources */,
+				0AD49CC7231D81AE000A7AE5 /* ModuleProtocolMediator.m in Sources */,
 				0AD49C9C231D7642000A7AE5 /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
