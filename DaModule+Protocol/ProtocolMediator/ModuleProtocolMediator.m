@@ -9,10 +9,13 @@
 #import "ModuleProtocolMediator.h"
 #import <UIKit/UIKit.h>
 
+struct CallResult {
+    BOOL raiseError; // 是否产生异常错误（如target或SEL为nil）
+    id result;       // perform 或 invocation 的返回值
+};
+
 @interface ModuleProtocolMediator ()
-
-@property (nonatomic, strong) NSMutableDictionary *mProtocolsDic;
-
+@property (nonatomic, strong) NSMutableDictionary *mProtocolsDic; // 保存协议与实现类的全局容器
 @end
 
 @implementation ModuleProtocolMediator
@@ -54,7 +57,7 @@
     return obj;
 }
 
-/* url示例：@"DaModuleProtocolScheme://DetailModuleProtocol:detailControllerWithPic%3acallback%3a"
+/* url示例：@"DaModuleProtocolScheme://DetailModuleProtocol:detailControllerWithPic:callback:"
  * scheme://[protocolName]:[protocolMethod]?key1=value1&key2=value2
  * [scheme]  [host]         [path]           [query]
  */
@@ -72,19 +75,19 @@
     Protocol *protocol = NSProtocolFromString(url.host);
     // 调用本类查询协议的实现类
     NSObject *target = [self protocolImplementorWithProtocol:protocol];
-    // 取出想调用的协议方法
+    // 取出想调用的协议方法(URL Decode)
     NSString *protocolMethod = [[url.path stringByRemovingPercentEncoding]
                                 stringByReplacingOccurrencesOfString:@"/" withString:@""];
     // 反射SEL，即协议中定义的方法
     SEL selector = NSSelectorFromString(protocolMethod);
     
     // 调用 perform 方法或者 NSInvocation 实现通信
-    NSDictionary *resultDic = [self safePerformAction:selector target:target params:params];
-    BOOL hasError = [resultDic[@"error"] boolValue];
-    if (hasError) {
+    struct CallResult retStruct = [self safePerformAction:selector target:target params:params];
+
+    if (retStruct.raiseError) {
         return NO;
     }else{
-        id value = resultDic[@"retValue"];
+        id value = retStruct.result;
         if (completion) {
             completion(value);
         }
@@ -93,20 +96,21 @@
 }
 
 
-+ (NSDictionary*)safePerformAction:(SEL)action
++ (struct CallResult)safePerformAction:(SEL)action
                  target:(NSObject *)target
                  params:(NSArray *)params
 {
     NSMethodSignature* methodSig = [target methodSignatureForSelector:action];
     if(methodSig == nil) {
-        return @{@"error":@(YES)};
+        struct CallResult retStruct = {YES,nil};
+        return retStruct;
     }
     const char* retType = [methodSig methodReturnType];
     
     if (strcmp(retType, @encode(void)) == 0 ||
-        strcmp(retType, @encode(NSInteger)) == 0 ||
         strcmp(retType, @encode(BOOL)) == 0 ||
         strcmp(retType, @encode(CGFloat)) == 0 ||
+        strcmp(retType, @encode(NSInteger)) == 0 ||
         strcmp(retType, @encode(NSUInteger)) == 0)
     {
         NSInvocation *invocation = [NSInvocation invocationWithMethodSignature:methodSig];
@@ -120,41 +124,26 @@
         }
         [invocation invoke];
         
-        // 区分返回值类型
+        // 无返回值时，结构体中result字段为nil
         if (strcmp(retType, @encode(void)) == 0) {
-            return @{@"error":@(NO)};
+            struct CallResult retStruct = {NO,nil};
+            return retStruct;
         }
-        
-        else if (strcmp(retType, @encode(NSInteger)) == 0) {
+        else { // 返回值为数值类型时，包装成对象
             NSInteger result = 0;
             [invocation getReturnValue:&result];
-            return @{@"error":@(NO),@"retValue":@(result)};
-        }
-        
-        else if (strcmp(retType, @encode(BOOL)) == 0) {
-            BOOL result = 0;
-            [invocation getReturnValue:&result];
-            return @{@"error":@(NO),@"retValue":@(result)};
-        }
-        
-        else if (strcmp(retType, @encode(CGFloat)) == 0) {
-            CGFloat result = 0;
-            [invocation getReturnValue:&result];
-            return @{@"error":@(NO),@"retValue":@(result)};
-        }
-        
-        else if (strcmp(retType, @encode(NSUInteger)) == 0) {
-            NSUInteger result = 0;
-            [invocation getReturnValue:&result];
-            return @{@"error":@(NO),@"retValue":@(result)};
+            struct CallResult retStruct = {NO,@(result)};
+            return retStruct;
         }
     }
     
     
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
-    id retValue = [target performSelector:action withObject:params];
-    return @{@"error":@(NO),@"retValue":retValue};
+    // 返回值为对象类型，直接调用即可
+    id result = [target performSelector:action withObject:params];
+    struct CallResult retStruct = {NO,result};
+    return retStruct;
 #pragma clang diagnostic pop
 }
 @end
